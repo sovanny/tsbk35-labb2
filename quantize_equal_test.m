@@ -1,10 +1,13 @@
 close all
-a = -10
-b = 20
+a = -10;
+b = 20;
 x = a:0.1:b
-%x = a + (b-a).*rand([1 1000]
-plot(x,x)
+n_steps = 10;
 
-x2 = quantize_equal(x,10,a,b)
+[x2,stepsize] = quantize_equal(x,n_steps,a,b);
+x3 = quantize_equal_simple(x,stepsize);
 figure
-plot(x,x,x,x2)
+plot(x,x,x,x2,x,x3)
+
+figure
+plot(x,x3)
